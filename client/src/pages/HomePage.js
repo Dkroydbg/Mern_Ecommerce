@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
-import { Prices } from "../components/Prices";
-import { useCart } from "../context/cart";
+import { Prices } from "../components/Prices.js";
+import { useCart } from "../context/cart.js";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../components/layout/Layout";
@@ -11,7 +11,7 @@ import "../styles/Homepage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const [cart, setCart] = useCart();
+  // const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -62,6 +62,7 @@ const HomePage = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
+    //eslint-disable-next-line
   }, [page]);
   //load more
   const loadMore = async () => {
@@ -88,10 +89,12 @@ const HomePage = () => {
   };
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
+    //eslint-disable-next-line
   }, [checked.length, radio.length]);
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+    //eslint-disable-next-line
   }, [checked, radio]);
 
   //get filterd product
@@ -108,13 +111,14 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
+      {/* banner image */}
       <img
         src="/images/banner.png"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
       />
-
+      {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -178,7 +182,7 @@ const HomePage = () => {
                     >
                       More Details
                     </button>
-                    <button
+                    {/* <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
@@ -190,7 +194,7 @@ const HomePage = () => {
                       }}
                     >
                       ADD TO CART
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

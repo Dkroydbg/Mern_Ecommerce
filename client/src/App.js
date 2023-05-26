@@ -17,12 +17,16 @@ import Users from "./pages/Admin/Users.js";
 import Orders from "./pages/user/Orders.js";
 import Products from "./pages/Admin/Products.js";
 import UpdateProduct from "./pages/Admin/UpdateProduct.js";
+import Search from "./pages/Search.js";
+import ProductDetails from "./pages/ProductDetails.js";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
